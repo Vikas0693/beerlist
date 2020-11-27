@@ -1,14 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MainLayoutComponent } from '../layout/main-layout.component';
-import { LoginComponent } from '../login/login.component';
 import { SignupComponent } from './signup.component';
+import { LAYOUT } from '../global/constants/layout';
 
 const routes: Routes = [
-  { path: '', component: MainLayoutComponent,
-    children: [
-      { path:'signup',component: SignupComponent }
-    ]
+  {
+    path: 'signup', component: SignupComponent, data: { layout: LAYOUT.layout_header_footer }
   }
 ];
 

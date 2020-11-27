@@ -3,24 +3,28 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './layout/header.component';
-import { FooterComponent } from './layout/footer.component';
-import { MainLayoutComponent } from './layout/main-layout.component';
 import { SignupModule } from './signup/signup.module';
 import { LoginModule } from './login/login.module';
+import { LayoutModule } from './layout/layout.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LoadingSpinnerComponent } from './shared/ui-templates/loading-spinner.component';
+import { HttpClientModule } from '@angular/common/http';
+import { PlotsModule } from './modules/plots/plots.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    MainLayoutComponent
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NgbModule,
+    HttpClientModule,
+    LayoutModule,
     SignupModule,
-    LoginModule
+    LoginModule,
+    PlotsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
