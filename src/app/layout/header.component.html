@@ -1,4 +1,4 @@
-<nav class="navbar navbar-light navbar-expand-sm">
+<nav class="navbar navbar-light navbar-expand-sm position-fixed">
     <a class="navbar-brand"  href="http://google.com">My Site</a>
     <button type="button" class="navbar-toggler" (click)="navBarCollapsed = !navBarCollapsed" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="navbar-toggler-icon"></span>
@@ -9,8 +9,8 @@
     </form>
     <div class="collapse navbar-collapse  justify-content-sm-end" [ngbCollapse]="navBarCollapsed" id="idForReference">
         <ul class="navbar-nav nav">
-            <li><a *ngIf="userInSession!=null" routerLink="login" class="nav-link">Login</a></li>
-            <li><a  *ngIf="userInSession!=null" routerLink="signup" class="nav-link">Signup</a></li>
+            <li><a *ngIf="userInSession==null" routerLink="login" class="nav-link">Login</a></li>
+            <li><a  *ngIf="userInSession==null" routerLink="signup" class="nav-link">Signup</a></li>
             <li><a *ngIf="userInSession!=null" routerLink="user/profile" class="nav-link">Profile</a></li>                  
             <li><a *ngIf="userInSession!=null" routerLink="logout" class="nav-link">Logout</a></li>
         </ul>

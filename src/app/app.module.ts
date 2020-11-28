@@ -10,17 +10,18 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoadingSpinnerComponent } from './shared/ui-templates/loading-spinner.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PlotsModule } from './modules/plots/plots.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LoadingSpinnerComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
+    SharedModule,
     LayoutModule,
     SignupModule,
     LoginModule,

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, delay, map, tap } from 'rxjs/operators';
 import { User } from '../model/user.model';
+import { BrowserStorageService } from '../shared/services/browser-storage.service';
 import { ErrorHandlerService } from './error-handler.service';
 
 @Injectable({
@@ -21,29 +22,26 @@ export class UserService {
   }
   
 
-  constructor(private http: HttpClient, private errorHandler: ErrorHandlerService) { }
+  constructor(private http: HttpClient, private errorHandler: ErrorHandlerService, private storageService: BrowserStorageService) { }
 
   getLoggedInUser(): Observable<User> {
     console.log('getLoggedInUser called.');
-    if (this.user == null) {
-      const userObject: User = {
-        email: 'vikas',
-        name: 'vikas',
-        contact: '12313',
-        id: 123
-      }
-      return of(userObject).pipe(
+    const userInSession: User = this.storageService.getUserInSession();
+    if (userInSession) {
+      
+      return of(userInSession).pipe(
         delay(1000),
         map(u => this.user = u),
         tap(res => console.log('User found in session', res)));
 
-      /*return this.http.get<User>(`${this.baseUrl}/sessionUser`).
-      pipe(map(u=>this.user=u)).
-      pipe(tap(res => console.log('Logged In User',res))).
-      pipe(catchError(this.handleError));*/
     }
     else {
-      return of(this.user);
+      alert('UserService => getLoggedInUser returning of()'); 
+      /*return this.http.get<User>(`${this.baseUrl}/sessionUser`).
+      pipe(map(u=>{this.user=u, this.storageService.saveOrUpdate(u)})).
+      pipe(tap(res => console.log('Logged In User',res))).
+      pipe(catchError(this.handleError));*/
+      return throwError('User not in session');
     }
   }
 
@@ -64,6 +62,7 @@ export class UserService {
       contact: '8769303901',
       name: 'Vikas Sharma'
     }
+    this.storageService.saveOrUpdateUser(this.user);
     return of(this.user).pipe(delay(1000));
 
     /*var postUser = {

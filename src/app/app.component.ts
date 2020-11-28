@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { throwError } from 'rxjs';
 import { LAYOUT } from './global/constants/layout';
+import { User } from './model/user.model';
 import { ErrorHandlerService } from './services/error-handler.service';
 import { UserService } from './services/user.service';
 
@@ -16,7 +17,8 @@ export class AppComponent implements OnInit{
   layoutLoaded:number;
   dataAvailable: boolean;
 
-  constructor(private _router: Router, private _activatedRoute: ActivatedRoute,private userService:UserService, private errorHandler: ErrorHandlerService){}
+  constructor(private _router: Router, private _activatedRoute: ActivatedRoute,private userService:UserService, private errorHandler: ErrorHandlerService){
+  }
 
   ngOnInit(): void {
     //subscribe to route revent and decide which layout to load
@@ -30,12 +32,5 @@ export class AppComponent implements OnInit{
         }
       }
     });
-    this.userService.getLoggedInUser().subscribe(resp=>{
-      this._router.navigate(['/plots']);
-      //direct user to 'plots' if he is in session
-
-    },
-    err => this.errorHandler.handleNetworkError(err,'AppComponent','ngOnInit')
-    ).add(() => {this.dataAvailable=true;});//this add acts as finally block
   }
 }

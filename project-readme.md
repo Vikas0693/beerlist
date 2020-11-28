@@ -23,3 +23,9 @@ Above issue gets resolved using route params and deciding which layout to load i
 Using Session storage to solve below issue
 1)If user refreshes the page after login then fetching the user from local storage.
 2)So will save user in sessionStorage after login.
+
+
+Using session storage
+1)npm install --save ngx-webstorage-service
+2)Create my own injection token so the developer can decide in app.module to use which type of service.For eg developer can update SessionStorage to LocalStorage in app.module.
+3)We could have directly used SessionStorage in our service classes, but then developer would have to look for it to change it to localstorage.

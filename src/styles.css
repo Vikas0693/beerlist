@@ -3,9 +3,8 @@
     margin-bottom: 0;
     border-radius: 0;
 }
-.row.content { height: 450px}
+.row.content { height: 1500px }
 .sidenav {
-    padding-top: 20px;
     background-color: #f1f1f1;
     height: 100%;
 }
@@ -13,7 +12,6 @@ body {
     min-height: 100vh;
     position: relative;
     margin: 0;
-    padding-bottom: 100px;
     box-sizing: border-box;
 }
 footer {
@@ -24,7 +22,7 @@ footer {
     bottom: 0;
     width: 100%;
 }
-@media screen  {
+@media screen and (max-width: 767px) {
     .sidenav {
       height: auto;
       padding: 15px;
