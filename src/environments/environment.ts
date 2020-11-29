@@ -4,9 +4,6 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://localhost:8080',
-  logging: 'debug',
-  logUrl: 'http://localhost:8080'
 };
 
 /*
