@@ -1,31 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
-.navbar {
-    margin-bottom: 0;
-    border-radius: 0;
-}
-.row.content { height: 1500px }
-.sidenav {
-    background-color: #f1f1f1;
-    height: 100%;
-}
-body {
-    min-height: 100vh;
-    position: relative;
-    margin: 0;
-    box-sizing: border-box;
-}
-footer {
-    background-color: #555;
-    color: white;
-    padding: 15px;
-    position: absolute;
-    bottom: 0;
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
     width: 100%;
-}
-@media screen and (max-width: 767px) {
-    .sidenav {
-      height: auto;
-      padding: 15px;
-    }
-    .row.content {height:auto;} 
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
   }

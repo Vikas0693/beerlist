@@ -1,0 +1,42 @@
+<!-- <div class="panel panel-primary pointerCurson panel-success">
+    <div class="panel-heading pointerCursor">
+        <h3 class="panel-title">{{beerObject.name | uppercase}}</h3>
+    </div>
+    <div class="panel-body">
+        <div class="col-xs-10">
+            <div class="row vertical-align">
+                <div class="col-xs-4">
+                  <img class="imageClass" height="60px" width="70px" [src]="beerObject.img" />
+                </div>
+                <div class="col-xs-8">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            ABV : {{beerObject.abv}}
+                        </div>
+                        <div class="col-xs-6">
+                            IBU : {{beerObject.ibu}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            Ounces : {{beerObject.ounces}}
+                        </div>
+                        <div class="col-xs-6">
+                            Style : {{beerObject.style}}
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <div class="panel-footer">
+
+    </div>
+</div> -->
+<tr>
+            <td><img src="{{beerObject.img}}" height="50px" width="50px"></td>
+            <td>{{beerObject.name}}</td>
+            <td>{{beerObject.style}}</td>
+            <td>{{beerObject.ibu}}</td>
+            <td>{{beerObject.abv}}</td>
+            <td>{{beerObject.ounces}}</td>
+</tr>

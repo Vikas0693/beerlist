@@ -1,0 +1,34 @@
+<div class="row">
+
+    <div class="col-md-12 col-xl-12">
+
+        <div class="form-group">
+            <input type="text" class="form-conthol" placeholder="Search By Brand" [(ngModel)]="searchTerm" />
+        </div>
+    </div>
+</div>
+<div *ngIf="!error; else errorOccurred">
+
+    <table>
+        <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Style</th>
+        <th>IBU</th>
+        <th>ABV</th>
+        <th>Ounces</th>
+    </tr>
+    <tr *ngFor="let beer of filteredBeerList">
+        <td><img src="{{beer.img}}" height="50px" width="50px"></td>
+        <td>{{beer.name}}</td>
+        <td>{{beer.style}}</td>
+        <td>{{beer.ibu}}</td>
+        <td>{{beer.abv}}</td>
+        <td>{{beer.ounces}}</td>
+        <!-- <app-display-beer [beer]=beer></app-display-beer> -->
+    </tr>
+</table>
+</div>
+<ng-template #errorOccurred>
+    {{error}}
+</ng-template>
